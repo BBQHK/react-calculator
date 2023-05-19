@@ -32,7 +32,8 @@
 }
 
 button {
-  background-color: #e6e6e6;
+  background-color: #a1a1a1;
+  color:#fff;
   border: none;
   border-radius: 5px;
   font-size: 2rem;
@@ -40,6 +41,20 @@ button {
   cursor: pointer;
   padding: 10px;
   transition: all 0.2s;
+}
+
+#function {
+  background-color: #696969;
+}
+
+#operator {
+  background-color: #ffa869;
+}
+
+#equal {
+  background-color: #ffa869;
+  grid-column-start: 3;
+  grid-column-end: 5;
 }
 
 button:hover {

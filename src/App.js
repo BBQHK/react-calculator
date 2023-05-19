@@ -23,6 +23,10 @@ function App() {
         setResult('');
         break;
       }
+      case '+/-': {
+        setInput(input * -1);
+        break;
+      }
       default: {
         setInput(input + value);
         break;
@@ -35,22 +39,29 @@ function App() {
       <Display input={input} result={result} />
       
       <div className="buttons">
-        <Button value="1" onClick={handleClick} />
-        <Button value="2" onClick={handleClick} />
-        <Button value="3" onClick={handleClick} />
-        <Button value="+" onClick={handleClick} />
-        <Button value="4" onClick={handleClick} />
-        <Button value="5" onClick={handleClick} />
-        <Button value="6" onClick={handleClick} />
-        <Button value="-" onClick={handleClick} />
+        <Button id="function" value="C" onClick={handleClick} />
+        <Button id="function" value="+/-" onClick={handleClick} />
+        <Button id="function" value="%" onClick={handleClick} />
+        <Button id="operator" value="/" onClick={handleClick} />
+
         <Button value="7" onClick={handleClick} />
         <Button value="8" onClick={handleClick} />
         <Button value="9" onClick={handleClick} />
-        <Button value="*" onClick={handleClick} />
-        <Button value="C" onClick={handleClick} />
+        <Button id="operator" value="*" onClick={handleClick} />
+
+        <Button value="4" onClick={handleClick} />
+        <Button value="5" onClick={handleClick} />
+        <Button value="6" onClick={handleClick} />
+        <Button id="operator" value="-" onClick={handleClick} />
+
+        <Button value="1" onClick={handleClick} />
+        <Button value="2" onClick={handleClick} />
+        <Button value="3" onClick={handleClick} />
+        <Button id="operator" value="+" onClick={handleClick} />
+
         <Button value="0" onClick={handleClick} />
-        <Button value="/" onClick={handleClick} />
-        <Button value="=" onClick={handleClick} />
+        <Button value="." onClick={handleClick} />
+        <Button id="equal" value="=" onClick={handleClick} />
       </div>
     </div>
   );
