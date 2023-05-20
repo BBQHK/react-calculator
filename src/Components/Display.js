@@ -5,7 +5,6 @@ const Display = (props) => {
     return (
         <div className="display">
             <p>{props.input}</p>
-            <p>{props.result}</p>
         </div>
     );
 }

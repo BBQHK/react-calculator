@@ -4,27 +4,49 @@ import Button from './Components/Button';
 import Display from './Components/Display';
 
 function App() {
+  const [prev_input, setPrevInput] = useState('');
   const [input, setInput] = useState('');
-  const [result, setResult] = useState('');
 
   const handleClick = (e) => {
     const value = e.target.value;
     switch (value) {
       case '=': {
-        try {
-          setResult(eval(input).toString());
-        } catch (error) {
-          setResult('Error');
-        }
+        const result = eval(prev_input + input);
+        setInput(result);
+        setPrevInput('');
         break;
       }
       case 'C': {
         setInput('');
-        setResult('');
+        setPrevInput('');
         break;
       }
       case '+/-': {
         setInput(input * -1);
+        break;
+      }
+      case '%': {
+        setInput(input / 100);
+        break;
+      }
+      case '+': {
+        setPrevInput(input + '+');
+        setInput('');
+        break;
+      }
+      case '-': {
+        setPrevInput(input + '-');
+        setInput('');
+        break;
+      }
+      case '*': {
+        setPrevInput(input + '*');
+        setInput('');
+        break;
+      }
+      case '/': {
+        setPrevInput(input + '/');
+        setInput('');
         break;
       }
       default: {
@@ -36,7 +58,7 @@ function App() {
 
   return (
     <div className="calculator">
-      <Display input={input} result={result} />
+      <Display input={input} />
       
       <div className="buttons">
         <Button id="function" value="C" onClick={handleClick} />
